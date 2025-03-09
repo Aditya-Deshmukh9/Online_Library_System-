@@ -8,7 +8,7 @@ function Header() {
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">
             <Link to={"/"} className="block text-white">
-              <h1 className="text-3xl font-bold">OLS</h1>
+              <h1 className="text-2xl font-bold">Online Library System</h1>
             </Link>
           </div>
 
