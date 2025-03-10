@@ -7,8 +7,18 @@ const bookSlice = createSlice({
     data: MockBookData,
     filterData: [],
     bookDetails: [],
+    searchQuery: "",
   },
   reducers: {
+    getsearchBook: (state, action) => {
+      let query = action.payload.toLowerCase();
+      state.filterData = state.data.filter(
+        (book) =>
+          book.title.toLowerCase().includes(query) ||
+          book.author.toLowerCase().includes(query)
+      );
+      state.searchQuery = query;
+    },
     getFilterData: (state, action) => {
       const category = action.payload.toLowerCase();
       if (category === "all") {
@@ -30,6 +40,7 @@ const bookSlice = createSlice({
   },
 });
 
-export const { getFilterData, getBookDetails, addBook } = bookSlice.actions;
+export const { getsearchBook, getFilterData, getBookDetails, addBook } =
+  bookSlice.actions;
 
 export default bookSlice.reducer;
